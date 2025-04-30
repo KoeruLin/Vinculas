@@ -1,0 +1,12 @@
+hit = false;
+is_projectile = false;
+is_enemy = true;
+hitpoint = 300;
+defense = 20;
+damage = 45;
+range = 100;
+spd = 8;
+in_range = false;
+swing_speed = 60;
+cooldown = swing_speed;
+obj_wave_manager.enemies_remaining++;
