@@ -1,214 +1,67 @@
+function create_wave(enemy_list)
+{
+	var wave = [];
+    for (var i = 0; i < array_length(enemy_list); ++i) 
+	{
+        array_push(wave, enemy_list[i]);
+    }
+    return wave;
+}
+
 cleared = true;
 roulette_object_summoned = false;
 wave_summoned = false;
-wave_current = array_create(12);
+wave_current = [];
 index = 0;
-wave_number = array_length(wave_current);
 spawners = [];
 
 for (var i = 0; i < instance_number(obj_spawner); ++i;)
 {
-    spawners[i] = instance_find(obj_spawner,i);
+    spawners[i] = instance_find(obj_spawner, i);
 }
 
-wave_one = array_create(8);
-wave_one[0] = obj_knight;
-wave_one[1] = obj_knight;
-wave_one[2] = obj_knight;
-wave_one[3] = obj_knight;
-wave_one[4] = obj_knight;
-wave_one[5] = obj_knight;
-wave_one[6] = obj_knight;
-wave_one[7] = obj_knight;
-wave_current[0] = wave_one;
+wave_current[0] = create_wave(array_create(8, obj_knight));
 
-wave_two = array_create(8);
-wave_two[0] = obj_knight;
-wave_two[1] = obj_tank;
-wave_two[2] = obj_tank;
-wave_two[3] = obj_tank;
-wave_two[4] = obj_knight;
-wave_two[5] = obj_tank;
-wave_two[6] = obj_tank;
-wave_two[7] = obj_tank;
-wave_current[1] = wave_two;
+wave_current[1] = create_wave([obj_knight, obj_tank, obj_tank, obj_tank, obj_knight, obj_tank, obj_tank, obj_tank]);
 
-wave_three = array_create(8);
-wave_three[0] = obj_archer;
-wave_three[1] = obj_knight;
-wave_three[2] = obj_archer;
-wave_three[3] = obj_knight;
-wave_three[4] = obj_archer;
-wave_three[5] = obj_knight;
-wave_three[6] = obj_archer;
-wave_three[7] = obj_knight;
-wave_current[2] = wave_three;
+wave_current[2] = create_wave([obj_archer, obj_knight, obj_archer, obj_knight, obj_archer, obj_knight, obj_archer, obj_knight]);
 
-wave_four = array_create(12)
-wave_four[0] = obj_knight;
-wave_four[1] = obj_knight;
-wave_four[2] = obj_tank;
-wave_four[3] = obj_archer;
-wave_four[4] = obj_archer;
-wave_four[5] = obj_archer;
-wave_four[6] = obj_knight;
-wave_four[7] = obj_knight;
-wave_four[8] = obj_tank;
-wave_four[9] = obj_archer;
-wave_four[10] = obj_archer;
-wave_four[11] = obj_archer;
-wave_current[3] = wave_four;
+wave_current[3] = create_wave([obj_knight, obj_knight, obj_tank, obj_archer, obj_archer, obj_archer,
+                                obj_knight, obj_knight, obj_tank, obj_archer, obj_archer, obj_archer]);
 
-wave_five = array_create(16)
-wave_five[0] = obj_archer;
-wave_five[1] = obj_archer;
-wave_five[2] = obj_archer;
-wave_five[3] = obj_archer;
-wave_five[4] = obj_archer;
-wave_five[5] = obj_archer;
-wave_five[6] = obj_archer;
-wave_five[7] = obj_archer;
-wave_five[8] = obj_archer;
-wave_five[9] = obj_archer;
-wave_five[10] = obj_archer;
-wave_five[11] = obj_archer;
-wave_five[12] = obj_archer;
-wave_five[13] = obj_archer;
-wave_five[14] = obj_archer;
-wave_five[15] = obj_archer;
-wave_current[4] = wave_five;
+wave_current[4] = create_wave(array_create(16, obj_archer));
 
-wave_six = array_create(4);
-wave_six[0] = obj_necromancer;
-wave_six[1] = obj_necromancer;
-wave_six[2] = obj_necromancer;
-wave_six[3] = obj_necromancer;
-wave_current[5] = wave_six;
+wave_current[5] = create_wave(array_create(4, obj_necromancer));
 
-wave_seven = array_create(18);
-wave_seven[0] = obj_archer;
-wave_seven[1] = obj_tank;
-wave_seven[2] = obj_tank;
-wave_seven[3] = obj_archer;
-wave_seven[4] = obj_tank;
-wave_seven[5] = obj_tank;
-wave_seven[6] = obj_archer;
-wave_seven[7] = obj_tank;
-wave_seven[8] = obj_tank;
-wave_seven[9] = obj_archer;
-wave_seven[10] = obj_tank;
-wave_seven[11] = obj_tank;
-wave_seven[12] = obj_archer;
-wave_seven[13] = obj_tank;
-wave_seven[14] = obj_tank;
-wave_seven[15] = obj_archer;
-wave_seven[16] = obj_tank;
-wave_seven[17] = obj_tank;
-wave_current[6] = wave_seven;
+wave_current[6] = create_wave([obj_archer, obj_tank, obj_tank, obj_archer, obj_tank, obj_tank,
+                                obj_archer, obj_tank, obj_tank, obj_archer, obj_tank, obj_tank,
+                                obj_archer, obj_tank, obj_tank, obj_archer, obj_tank, obj_tank]);
 
-wave_eight = array_create(22);
-wave_eight[0] = obj_archer;
-wave_eight[1] = obj_archer;
-wave_eight[2] = obj_archer;
-wave_eight[3] = obj_knight;
-wave_eight[4] = obj_knight;
-wave_eight[5] = obj_knight;
-wave_eight[6] = obj_tank;
-wave_eight[7] = obj_tank;
-wave_eight[8] = obj_tank;
-wave_eight[9] = obj_tank;
-wave_eight[10] = obj_tank;
-wave_eight[11] = obj_archer;
-wave_eight[12] = obj_archer;
-wave_eight[13] = obj_archer;
-wave_eight[14] = obj_knight;
-wave_eight[15] = obj_knight;
-wave_eight[16] = obj_knight;
-wave_eight[17] = obj_tank;
-wave_eight[18] = obj_tank;
-wave_eight[19] = obj_tank;
-wave_eight[20] = obj_tank;
-wave_eight[21] = obj_tank;
-wave_current[7] = wave_eight;
+wave_current[7] = create_wave([obj_archer, obj_archer, obj_archer, obj_archer, obj_archer, obj_archer,
+                                obj_tank, obj_tank, obj_tank, obj_tank,
+                                obj_archer, obj_archer, obj_archer,
+                                obj_knight, obj_knight, obj_knight,
+                                obj_tank, obj_tank, obj_tank, obj_tank, obj_tank]);
 
-wave_nine = array_create(28);
-wave_nine[0] = obj_archer;
-wave_nine[1] = obj_knight;
-wave_nine[2] = obj_tank;
-wave_nine[3] = obj_tank;
-wave_nine[4] = obj_tank;
-wave_nine[5] = obj_knight;
-wave_nine[6] = obj_knight;
-wave_nine[7] = obj_knight;
-wave_nine[8] = obj_knight;
-wave_nine[9] = obj_knight;
-wave_nine[10] = obj_knight;
-wave_nine[11] = obj_knight;
-wave_nine[12] = obj_knight;
-wave_nine[13] = obj_knight;
-wave_nine[14] = obj_archer;
-wave_nine[15] = obj_knight;
-wave_nine[16] = obj_tank;
-wave_nine[17] = obj_tank;
-wave_nine[18] = obj_tank;
-wave_nine[19] = obj_knight;
-wave_nine[20] = obj_knight;
-wave_nine[21] = obj_knight;
-wave_nine[22] = obj_knight;
-wave_nine[23] = obj_knight;
-wave_nine[24] = obj_knight;
-wave_nine[25] = obj_knight;
-wave_nine[26] = obj_knight;
-wave_nine[27] = obj_knight;
-wave_current[8] = wave_nine;
+wave_current[8] = create_wave([obj_archer, obj_knight, obj_tank, obj_knight, obj_tank, obj_tank,
+                                obj_archer, obj_knight, obj_tank, obj_knight, obj_knight, obj_knight,
+                                obj_archer, obj_knight, obj_tank, obj_tank, obj_tank, obj_knight,
+                                obj_knight, obj_knight, obj_knight, obj_knight, obj_knight, obj_knight,
+                                obj_knight, obj_knight, obj_knight, obj_knight]);
 
-wave_ten = array_create(16);
-wave_ten[0] = obj_necromancer;
-wave_ten[1] = obj_archer;
-wave_ten[2] = obj_necromancer;
-wave_ten[3] = obj_archer;
-wave_ten[4] = obj_necromancer;
-wave_ten[5] = obj_archer;
-wave_ten[6] = obj_necromancer;
-wave_ten[7] = obj_archer;
-wave_ten[8] = obj_necromancer;
-wave_ten[9] = obj_archer;
-wave_ten[10] = obj_necromancer;
-wave_ten[11] = obj_archer;
-wave_ten[12] = obj_necromancer;
-wave_ten[13] = obj_archer;
-wave_ten[14] = obj_necromancer;
-wave_ten[15] = obj_archer;
-wave_current[9] = wave_ten;
+wave_current[9] = create_wave([obj_necromancer, obj_archer, obj_necromancer, obj_archer,
+                                obj_necromancer, obj_archer, obj_necromancer, obj_archer,
+                                obj_necromancer, obj_archer, obj_necromancer, obj_archer,
+                                obj_necromancer, obj_archer, obj_necromancer, obj_archer]);
 
-wave_eleven = array_create(10);
-wave_eleven[0] = obj_necromancer;
-wave_eleven[1] = obj_necromancer;
-wave_eleven[2] = obj_necromancer;
-wave_eleven[3] = obj_necromancer;
-wave_eleven[4] = obj_necromancer;
-wave_eleven[5] = obj_necromancer;
-wave_eleven[6] = obj_necromancer;
-wave_eleven[7] = obj_necromancer;
-wave_eleven[8] = obj_necromancer;
-wave_eleven[9] = obj_necromancer;
-wave_current[10] = wave_eleven;
+wave_current[10] = create_wave(array_create(10, obj_necromancer));
 
-wave_twelve = array_create(12);
-wave_twelve[0] = obj_necromancer;
-wave_twelve[1] = obj_archer;
-wave_twelve[2] = obj_necromancer;
-wave_twelve[3] = obj_archer;
-wave_twelve[4] = obj_archer;
-wave_twelve[5] = obj_necromancer;
-wave_twelve[6] = obj_necromancer;
-wave_twelve[7] = obj_archer;
-wave_twelve[8] = obj_necromancer;
-wave_twelve[9] = obj_archer;
-wave_twelve[10] = obj_archer;
-wave_twelve[11] = obj_necromancer;
-wave_current[11] = wave_twelve;
+wave_current[11] = create_wave([obj_necromancer, obj_archer, obj_necromancer, obj_archer,
+                                 obj_archer, obj_necromancer, obj_necromancer, obj_archer,
+                                 obj_necromancer, obj_archer, obj_archer, obj_necromancer]);
 
+
+wave_number = array_length(wave_current);
 enemies_remaining = 0;
 points = 0;
 highscore = 0;

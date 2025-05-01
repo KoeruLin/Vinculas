@@ -1,6 +1,6 @@
 if (!cleared && index < array_length(wave_current) && !wave_summoned)
 {
-	initialize_wave(wave_current[index], index, spawners);
+	initialize_wave(array_get(wave_current, index), index, spawners);
 	index++;
 	wave_summoned = true;
 }
