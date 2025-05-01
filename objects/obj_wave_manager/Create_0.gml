@@ -39,5 +39,4 @@ wave_number = array_length(wave_current);
 enemies_remaining = 0;
 points = 0;
 highscore = 0;
-instances = 0;
 global.reset_game = false;
