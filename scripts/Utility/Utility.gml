@@ -96,8 +96,8 @@ function initialize_wave(enemies, magnification, spawners)
             );
 			
 		enemy.range += random_range(-10, 10);
-		enemy.hitpoint *= (1 + (magnification / 50))
-		enemy.damage *= (1 + (magnification / 50))
+		enemy.hitpoint *= (1 + (magnification / 10))
+		enemy.damage *= (1 + (magnification / 10))
     }
 	
 	obj_wave_manager.cleared = false;

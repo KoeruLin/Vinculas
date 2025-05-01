@@ -6,19 +6,19 @@ function upgrade_extra_strike()
 
 function damage_boost()
 {
-	obj_player.damage *= 1.1;
+	obj_player.damage *= 1.25;
 }
 
 
 function atk_spd_boost()
 {
-	obj_player.shoot_cooldown *= 0.9;
+	obj_player.shoot_cooldown *= 0.85;
 }
 
 
 function defense_boost()
 {
-	obj_player.defense *= 1.25;
+	obj_player.defense *= 1.5;
 }
 
 
@@ -30,7 +30,7 @@ function spd_boost()
 function health_boost()
 {
 	var current = obj_player.max_hitpoint;
-	obj_player.max_hitpoint *= 1.25;
+	obj_player.max_hitpoint *= 1.5;
 	obj_player.hitpoint *= (obj_player.max_hitpoint / current);
 }
 
