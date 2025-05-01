@@ -96,9 +96,17 @@ function initialize_wave(enemies, magnification, spawners)
             );
 			
 		enemy.range += random_range(-10, 10);
-		enemy.hitpoint *= (1 + (magnification / 10))
+		enemy.max_hitpoint *= (1 + (magnification / 10))
 		enemy.damage *= (1 + (magnification / 10))
     }
 	
 	obj_wave_manager.cleared = false;
+}
+
+function draw_hp_bar(x_coordinate, y_coordinate, object)
+{
+	draw_rectangle(x_coordinate - 20, y_coordinate + 40 , x_coordinate + 20, y_coordinate + 50, false);
+	draw_set_color(c_red);
+	draw_rectangle(x_coordinate - 20, y_coordinate + 40, x_coordinate - 20 + (40 * max(0, object.hitpoint / object.max_hitpoint)), y_coordinate + 50, false);
+	draw_set_color(c_white);
 }

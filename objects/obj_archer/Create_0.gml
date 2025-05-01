@@ -1,5 +1,6 @@
 hit = false;
-hitpoint = 100;
+max_hitpoint = 150;
+hitpoint = max_hitpoint
 defense = 5;
 damage = 10;
 range = 600;

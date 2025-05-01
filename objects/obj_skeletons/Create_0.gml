@@ -1,7 +1,8 @@
 hit = false;
 is_projectile = false;
 is_enemy = true;
-hitpoint = 100;
+max_hitpoint = 150;
+hitpoint = max_hitpoint;
 defense = 10;
 damage = 50;
 range = 30;

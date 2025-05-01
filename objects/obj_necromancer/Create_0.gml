@@ -21,7 +21,8 @@ function summon_skeletons()
 hit = false;
 is_projectile = false;
 is_enemy = true;
-hitpoint = 500;
+max_hitpoint = 550;
+hitpoint = max_hitpoint
 max_hitpoint = hitpoint;
 defense = 40;
 damage = 50;
