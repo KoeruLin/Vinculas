@@ -5,7 +5,7 @@ wave_current = [];
 index = 0;
 spawners = [];
 
-for (var i = 0; i < instance_number(obj_spawner); ++i;)
+for (var i = 0; i < instance_number(obj_spawner); ++i)
 {
     spawners[i] = instance_find(obj_spawner, i);
 }
