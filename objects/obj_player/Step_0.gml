@@ -112,16 +112,18 @@ if (global.reset_game)
 
 if (hitpoint <= 0)
 {
-	room_restart();
+	obj_wave_manager.enemies_remaining = 0;
+	obj_wave_manager.index = 0;
+	obj_wave_manager.points = 0;
 	room_goto(EndScreen);
 }
 else if (obj_wave_manager.cleared && obj_wave_manager.index == array_length(obj_wave_manager.wave_current))
 {
-	room_restart();
+	obj_wave_manager.enemies_remaining = 0;
+	obj_wave_manager.index = 0;
+	obj_wave_manager.points = 0;
 	room_goto(WinScreen);
 }
 
 previousx = x;
 previousy = y;
-
-show_debug_message(hitpoint);
