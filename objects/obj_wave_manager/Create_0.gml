@@ -42,7 +42,9 @@ wave_current[11] = array_shuffle(array_concat(array_create(6, obj_archer),
 				   array_create(6, obj_necromancer), array_create(12, obj_tank)));
 				   
 wave_current[12] = array_shuffle(array_create(24, obj_archer));
+
 wave_current[13] = array_shuffle(array_concat(array_create(24, obj_knight), array_create(24, obj_tank)));
+
 wave_current[14] = array_shuffle(array_create(16, obj_necromancer));
 
 wave_number = array_length(wave_current);
