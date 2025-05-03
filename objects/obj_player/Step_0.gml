@@ -112,10 +112,12 @@ if (global.reset_game)
 
 if (hitpoint <= 0)
 {
+	room_restart();
 	room_goto(EndScreen);
 }
 else if (obj_wave_manager.cleared && obj_wave_manager.index == array_length(obj_wave_manager.wave_current))
 {
+	room_restart();
 	room_goto(WinScreen);
 }
 
