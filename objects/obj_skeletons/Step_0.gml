@@ -65,8 +65,7 @@ if (hitpoint <= 0)
 	audio_play_sound(step_skeleton_47785, 1, false);
 	instance_destroy(self);
 }
-
-if (!instance_exists(parent_instance))
+else if (!instance_exists(parent_instance))
 {
 	obj_wave_manager.enemies_remaining--;
 		

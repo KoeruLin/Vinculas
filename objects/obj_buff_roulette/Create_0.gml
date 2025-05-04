@@ -44,3 +44,8 @@ health_buff = false;
 speed_buff = false;
 defense_buff = false;
 attack_spd_buff = false;
+
+if (room == WinScreen)
+{
+	instance_destroy(self);
+}

@@ -22,11 +22,13 @@ hit = false;
 is_projectile = false;
 is_enemy = true;
 max_hitpoint = 550;
-hitpoint = max_hitpoint
-max_hitpoint = hitpoint;
 defense = 40;
 damage = 50;
 range = 300;
+
+magnification(self, obj_wave_manager.index);
+
+hitpoint = max_hitpoint
 spd = 1;
 in_range = false;
 shoot_speed = 60;

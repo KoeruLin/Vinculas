@@ -2,7 +2,7 @@ cleared = true;
 roulette_object_summoned = false;
 wave_summoned = false;
 wave_current = [];
-index = 0;
+index = 14;
 spawners = [];
 
 for (var i = 0; i < instance_number(obj_spawner); ++i)

@@ -2,10 +2,13 @@ hit = false;
 is_projectile = false;
 is_enemy = true;
 max_hitpoint = 150;
-hitpoint = max_hitpoint;
 defense = 10;
 damage = 50;
 range = 30;
+
+magnification(self, obj_wave_manager.index);
+
+hitpoint = max_hitpoint;
 spd = 5;
 in_range = false;
 swing_speed = 60;

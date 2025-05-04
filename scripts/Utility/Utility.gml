@@ -82,23 +82,19 @@ function take_damage(object, damage)
 }
 
 
-function initialize_wave(enemies, magnification, spawners)
+function initialize_wave(enemies, spawners)
 {       
 	for (var i = 0; i < array_length(enemies); i++)
     {
 		var chosen_spawner = spawners[irandom(array_length(spawners) - 1)];
-			
-        var enemy = instance_create_depth(
-				chosen_spawner.x + random_range(-150, 150), 
-				chosen_spawner.y + random_range(-30, 30),
-                0,
-                enemies[i] 
-            );
-			
-		enemy.range += random_range(-10, 10);
-		enemy.max_hitpoint *= (1 + (magnification / 10))
-		enemy.damage *= (1 + (magnification / 10))
-    }
+		var enemy = instance_create_depth(
+			chosen_spawner.x + random_range(-75, 75), 
+			chosen_spawner.y + random_range(-30, 30),
+               0,
+            enemies[i] 
+        );
+	}
+}
 	
 	obj_wave_manager.cleared = false;
 }
@@ -109,4 +105,11 @@ function draw_hp_bar(x_coordinate, y_coordinate, object)
 	draw_set_color(c_red);
 	draw_rectangle(x_coordinate - 20, y_coordinate + 40, x_coordinate - 20 + (40 * max(0, object.hitpoint / object.max_hitpoint)), y_coordinate + 50, false);
 	draw_set_color(c_white);
+}
+
+function magnification(instance, multiplier)
+{
+	instance.range += random_range(-10, 10);
+	instance.max_hitpoint *= (1 + (multiplier / 10));
+	instance.damage *= (1 + (multiplier / 10));
 }

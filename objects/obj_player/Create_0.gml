@@ -10,7 +10,7 @@ function homing_arrows()
 
 max_hitpoint = 200;
 hitpoint = max_hitpoint;
-damage = 50;
+damage = 500000000;
 movement_spd = 7;
 speed_cap = 30;
 hits = 1;
