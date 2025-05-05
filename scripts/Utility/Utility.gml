@@ -2,7 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
 //this function moves the START value toward the END value by an AMOUNT without passing.
-function approach(_start, _end, _amt){
+function approach(_start, _end, _amt)
+{
 	
 	if (_start > _end){
 		return(max(_start - _amt, _end));	
@@ -14,7 +15,8 @@ function approach(_start, _end, _amt){
 
 //this function takes in a value, and wraps it around from a min and a max. you can use it for screen wrapping
 //or constraining degrees.
-function wrap(_val, _min, _max){
+function wrap(_val, _min, _max)
+{
 	if (_val mod 1 == 0)
 	{
 	    while (_val > _max || _val < _min)
@@ -42,18 +44,22 @@ function wrap(_val, _min, _max){
 }
 	
 //this is a restart function.
-function check_reset(_key){
-	if (keyboard_check_pressed(_key)){
+function check_reset(_key)
+{
+	if (keyboard_check_pressed(_key))
+	{
 		room_restart(); //you could use room_restart here instead if you want	
 	}
 }
 
-function clamp_pos_to_bounds(_xmin, _ymin, _xmax,  _ymax){
+function clamp_pos_to_bounds(_xmin, _ymin, _xmax,  _ymax)
+{
 	x = clamp(x, _xmin, _xmax);
 	y = clamp(y, _ymin, _ymax);
 }
 
-function screenwrap(_offsetLeft = 0, _offsetTop = _offsetLeft, _offsetRight = _offsetLeft, _offsetBottom = _offsetTop){
+function screenwrap(_offsetLeft = 0, _offsetTop = _offsetLeft, _offsetRight = _offsetLeft, _offsetBottom = _offsetTop)
+{
 	x = Wrap(x, _offsetLeft, room_width - _offsetRight);
 	y = Wrap(y, _offsetTop, room_height - _offsetBottom);
 }
@@ -81,7 +87,6 @@ function take_damage(object, damage)
     }
 }
 
-
 function initialize_wave(enemies, spawners)
 {       
 	for (var i = 0; i < array_length(enemies); i++)
@@ -94,7 +99,6 @@ function initialize_wave(enemies, spawners)
             enemies[i] 
         );
 	}
-}
 	
 	obj_wave_manager.cleared = false;
 }
@@ -102,7 +106,7 @@ function initialize_wave(enemies, spawners)
 function draw_hp_bar(x_coordinate, y_coordinate, object)
 {
 	draw_rectangle(x_coordinate - 20, y_coordinate + 40 , x_coordinate + 20, y_coordinate + 50, false);
-	draw_set_color(c_red);
+	draw_set_color(c_red); 
 	draw_rectangle(x_coordinate - 20, y_coordinate + 40, x_coordinate - 20 + (40 * max(0, object.hitpoint / object.max_hitpoint)), y_coordinate + 50, false);
 	draw_set_color(c_white);
 }
